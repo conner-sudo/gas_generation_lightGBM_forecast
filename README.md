@@ -41,8 +41,3 @@ The champion **LightGBM** model successfully captured the complex consumption pa
 1. **Probabilistic Forecasting:** Transition from point forecasts to quantile regression models (e.g., predicting 10th, 50th, and 90th percentiles) to accurately capture risk boundaries.
 2. **Deep Learning Implementations:** Benchmark the LightGBM champion against neural architectures like the Temporal Fusion Transformer (TFT) or N-BEATS for extended seasonal horizons.
 3. **Automated MLOps Pipeline:** Encapsulate the pipeline into a modular architecture using Prefect or Airflow, with automated model drift monitoring via MLflow.
-
----
-
-### 👨‍💻 About the Author
-**Conner Spear** *Data Professional & Aspiring Data Scientist* *BSc Mathematics (1st Class) | Specializing in advanced statistical modeling, ETL pipelines, and energy sector analytics.*

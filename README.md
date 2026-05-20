@@ -4,7 +4,7 @@
 ![Machine Learning](https://img.shields.io/badge/Machine_Learning-LightGBM%20%7C%20XGBoost-orange)
 ![Time Series](https://img.shields.io/badge/Time_Series-darts-success)
 ![Data Engineering](https://img.shields.io/badge/Data_Engineering-ETL%20%7C%20API-yellow)
-![Data Manipulation](https://img.shields.io/badge/Data_Engineering-Pandas-yellow)
+![Data Manipulation](https://img.shields.io/badge/Data_Manipulation-Pandas-red)
 
 ## 📌 Project Overview
 This project explores the dramatic shift in Great Britain's energy generation mix and develops a robust predictive model for natural gas generation demand. By analyzing high-frequency energy data and integrating granular weather telemetry, this pipeline quantifies the transition from fossil fuels to renewable energy sources and addresses the complex seasonal forecasting challenges faced by grid operators.

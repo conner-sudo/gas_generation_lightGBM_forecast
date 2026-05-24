@@ -38,5 +38,4 @@ Leveraging the darts ecosystem, the project treats the forecasting challenge as 
 
 *   **LightGBM & XGBoost:** Tree-based machine learning models adept at capturing non-linear relationships between gas demand and complex weather interactions. 
 *   **SARIMAX / AutoARIMA:** Statistical baselines to benchmark seasonality and auto-regressive properties against the machine learning estimators.
-
-> **Note:** LightGBM proved highly effective in processing the engineered CWV features to forecast the 7-day horizon.
+*   **LightGBM:** Out-performs the other models and is developed in more detail to further lower the MAE. 

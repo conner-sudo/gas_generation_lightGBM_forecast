@@ -5,67 +5,46 @@
 ![Data Manipulation](https://img.shields.io/badge/Data_Manipulation-Pandas-red)
 
 # ⚡ Forecasting Great Britain's Energy Transition & Gas Demand
-
 ## 📌 Project Overview
-This portfolio site showcases high-impact data science applications created by **Conner Spear**, a First Class Honours Mathematics graduate from the University of Brighton. Grounded in rigorous statistical modeling, probability theory, and machine learning architectures, these projects are tailored to turn massive operational datasets into executive intelligence. 
 
-Leveraging enterprise data stacks (R, Python, SQL, Azure, and GCP), the core focus is bridging advanced theoretical frameworks—such as Multivariate Time Series Forecasting, Support Vector Machines (SVM), and Generalized Additive Models (GAM)—with actionable commercial value in the energy and utility sectors.
+As Great Britain accelerates its transition toward renewable energy, understanding and predicting natural gas demand is critical for assessing grid capacity risk. This project explores the shifting energy generation mix and develops a robust multivariate time series forecasting model. 
 
-### Key Expertise:
-* **Production-Grade ETL Pipelines:** Automated high-frequency API ingestion, custom domain-specific feature engineering (such as Composite Weather Variables), and secure cloud transformations.
-* **Advanced Mathematical Modeling:** Implementation of regression, time-series, and classification algorithms mapped directly back to system balancing risks and grid capacity challenges.
-* **End-to-End MLOps & App Deployment:** Building and serving robust containerized analytic frameworks via production ecosystems like R/Shiny and cloud analytics platforms.
+By extracting high-frequency generation data and engineering complex weather features across 9 UK energy zones, this repository provides a machine learning solution to a real-world energy transition challenge.
 
----
+## 🎯 Business Value
 
-## 1. High-Performance Multivariate Time Series: UK Gas Demand Forecasting Pipeline
-### ⚙️ Architecture & Technical Scope:
-* **Data Ingestion (NESO API):** Engineered an automated, high-frequency SQL pipeline hitting the National Energy System Operator (NESO) API to ingest rolling multi-year records of real-time electricity and gas grid balancing telemetry.
-* **UNC Feature Engineering (Composite Weather Variable):** Translated complex legal and physical logic from the Uniform Network Code (UNC) into an atomic, vector-parallelized Python function. Mapped geolocation arrays across 9 discrete UK Local Distribution Zones (LDZs) utilizing API weather feeds (Mean Temperature, Max Wind Speed, Shortwave Radiation) to compute dynamic wind chill and thermal memory effects.
-* **Model Benchmark Framework (darts):** Developed a chronological validation framework evaluating baseline SARIMAX networks, penalized Ridge Regression filters, and advanced gradient boosted ensembles (XGBoost and LightGBM) on complex past and future covariate tracking structures.
+*   **Quantifies Grid Capacity Risk:** Delivers accurate 7-day forward outlooks for natural gas generation, enabling better strategic balancing of the National Transmission System (NTS).
+*   **Automated Data Integration:** Seamlessly bridges raw National Energy System Operator (NESO) SQL databases and Open-Meteo telemetry into an analytics-ready format.
+*   **Industry-Standard Metrics:** Replaces basic temperature inputs with the Uniform Network Code (UNC) Composite Weather Variable (CWV), aligning model inputs with UK energy sector standards.
 
-### 📈 Core Optimizations & Backtesting:
-* **Annual Scale Lag Transformations:** Integrated a deep multi-horizon historical matrix (including custom 365-day transformations) to bypass absolute error variance and isolate structural seasonal shifts.
-* **Rolling Historical Backtest Validation:** Evaluated pipeline longevity across 62 non-overlapping rolling windows spanning a continuous 14-month validation era to ensure stability under volatile conditions without target data leaks.
+## 🏗️ Architecture & Data Pipeline
 
-| Transition Season / Era | Mean Operational MAE | Core Volatility Driver Identification |
-| :--- | :--- | :--- |
-| **Summer Trough (Jun–Jul)** | ~1,800 MW | Highly predictable structural baseload under solar suppression. |
-| **Spring Ramp-Down (Apr–May)** | ~2,250 MW | Gradual ambient warming; typical network decompression. |
-| **Deep Winter (Jan–Feb)** | ~3,300 MW | Cold snap anomalies driving non-linear peaking plant utilization. |
-| **Autumn Onset (October)** | **~4,200 MW** | **Transition Phase Shock:** absolute short-term lags lag network steps. |
+The ETL pipeline ensures that raw API data is robustly cleansed and transformed before modeling:
 
----
+1.  **Extraction:** Automated API queries to the NESO database using SQL to pull the daily generation mix.
+2.  **Transformation:** Dimensionality reduction, type casting, datetime indexing, and resampling to a daily aggregated frequency to smooth intraday volatility.
+3.  **Integration:** Fetching historical and 7-day forecast weather telemetry (Mean Temperature, Max Wind Speed, Shortwave Radiation) using the Open-Meteo API.
 
-## 2. Risk Quantification: Pipeline Resilience Probability Modeling
-### ⚙️ Architecture & Technical Scope:
-* **Stochastic Route Optimization:** Re-engineered the probability engine assessing pipeline resilience across the National Transmission System (NTS) network grid to calculate exact transmission path limits under complex disruption matrices.
-* **Poisson-Binomial Mathematical Expansion:** Swapped brittle, assumption-heavy classical binomial metrics for a rigorous Poisson-binomial distribution module inside R. This setup handles heterogeneous failure parameters across active pipeline junctions simultaneously, reducing high-dimensional variance down to predictable operational ranges.
-* **Interactive Executive Intelligence (Shiny Interface):** Wrapped the operational mathematical script into an enterprise R/Shiny application dashboard. This interface allows grid controllers to stress-test real-time failure contingencies and visually plot continuous asset risk profiles across map clusters during emergency routing scenarios.
+## 🧠 Feature Engineering
 
----
+Weather is the primary driver of energy demand. This project implements advanced, domain-specific feature engineering:
 
-## 3. Advanced Diagnostic Classification: Diagnostic Engine Tuning
-### ⚙️ Architecture & Technical Scope:
-* **Hyperparameter Constellation Grid:** Built an automated machine learning script in Python using custom cost functions and exhaustive spatial grid evaluations to fine-tune a Support Vector Machine (SVM) architecture.
-* **Optimal Boundary Regularization:** Optimized standard scalar margins to construct non-linear boundary kernels (RBF). This approach eliminated multi-collinear cross-talk and automated noise reduction across dense multi-dimensional patient arrays.
-* **Empirical Validation Success:** Achieved a **99.1% diagnostic accuracy rate** on target testing boundaries. This model effectively minimizes false-negative profiles, ensuring dependable classification within sensitive clinical risk boundaries.
+*   **Composite Weather Variable (CWV):** Engineered across 9 distinct Local Distribution Zones (LDZs) (e.g., South East, Scotland, Midlands). The calculation incorporates wind chill, solar radiation, and effective temperature memory, strictly adhering to UNC mathematical structures.
+*   **Temporal Covariates:** Built temporal matrices including day of the week, month, weekend indicators, and Great Britain public holiday flags to capture behavioral and industrial consumption trends.
 
----
+## 🤖 Modeling Strategy
 
-## 4. Human Behavior Modeling: Lifestyle Stress Predictor Web App
-### ⚙️ Architecture & Technical Scope:
-* **Advanced Distribution Mechanics:** Designed a predictive architecture tracking individual health trends by isolating self-reporting bias patterns. This implementation addresses highly skewed, non-negative target metrics bounded strictly between 0 and 1.
-* **One-Inflated Beta GAM Formulation:** Built and parameterized a One-Inflated Beta Generalized Additive Model (GAM) to handle extreme zero-to-one limits. The model fits smooth cubic regression splines to extract underlying multi-variable trends without over-correcting for localized noise anomalies.
-* **Statistical Performance Metrics:** The model achieved an outstanding **0.81 R² explanatory score**. This step successfully mapped complex health interactions while preserving mathematical precision across volatile, self-reported survey domains.
+Leveraging the darts ecosystem, the project treats the forecasting challenge as a multivariate time series problem. The pipeline evaluates multiple algorithms to optimize for Mean Absolute Error (MAE):
 
----
+*   **LightGBM & XGBoost:** Tree-based machine learning models adept at capturing non-linear relationships between gas demand and complex weather interactions. 
+*   **SARIMAX / AutoARIMA:** Statistical baselines to benchmark seasonality and auto-regressive properties against the machine learning estimators.
 
-## 🧳 Technical Toolkit & Enterprise Stack
+> **Note:** LightGBM proved highly effective in processing the engineered CWV features to forecast the 7-day horizon.
 
-| Competency Area | Specialized Frameworks, Tools & Distributions |
-| :--- | :--- |
-| **Statistical & ML Frameworks** | Regression Analysis, Stochastic Processes, Support Vector Machines (SVM), Beta GAMs, XGBoost, LightGBM, ARIMA, Prophet, Time-Series Forecasting |
-| **Languages & Systems** | R, Python, SQL, Git versioning ecosystem |
-| **Cloud Computing & BI** | Microsoft Azure cloud infrastructure, Google Cloud Platform (GCP), Power BI visualization, Tableau legacy migrations |
-| **Advanced Packages & MLOps**| darts, scikit-learn, mgcv, Shiny, tidyverse, pandas, NumPy, lightgbm |
+## 🚀 Getting Started
+
+### Prerequisites
+Ensure you have the necessary libraries installed via your package manager, including pandas, numpy, requests, darts, lightgbm, xgboost, scikit-learn, and matplotlib.
+
+### Execution
+To execute the full data extraction, engineering, and forecasting pipeline, clone the repository to your local machine and run the provided Jupyter Notebook.

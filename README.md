@@ -40,11 +40,3 @@ Leveraging the darts ecosystem, the project treats the forecasting challenge as 
 *   **SARIMAX / AutoARIMA:** Statistical baselines to benchmark seasonality and auto-regressive properties against the machine learning estimators.
 
 > **Note:** LightGBM proved highly effective in processing the engineered CWV features to forecast the 7-day horizon.
-
-## 🚀 Getting Started
-
-### Prerequisites
-Ensure you have the necessary libraries installed via your package manager, including pandas, numpy, requests, darts, lightgbm, xgboost, scikit-learn, and matplotlib.
-
-### Execution
-To execute the full data extraction, engineering, and forecasting pipeline, clone the repository to your local machine and run the provided Jupyter Notebook.
